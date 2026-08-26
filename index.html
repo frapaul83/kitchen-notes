@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Cooking for AP — a short guide for the host</title>
+<style>
+  :root{
+    --ink:#1B2620;
+    --ink-soft:#4E5A52;
+    --paper:#FCFBF7;
+    --panel:#F2EEE4;
+    --rule:#DCD5C6;
+    --blue:#1F5673;
+    --blue-deep:#153E53;
+    --green:#4C7A3B;
+    --amber:#AE7818;
+    --red:#8E3A2F;
+    --display:Lora,"Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif;
+    --body:Carlito,Optima,Candara,"Segoe UI",-apple-system,"Helvetica Neue",sans-serif;
+    --mono:"DejaVu Sans Mono",ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  }
+
+  *{box-sizing:border-box}
+
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:var(--body);
+    font-size:16px;
+    line-height:1.5;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  .sheet{max-width:940px;margin:0 auto;padding:44px 28px 72px}
+
+  .eyebrow{
+    font-family:var(--mono);
+    font-size:11px;
+    letter-spacing:.18em;
+    text-transform:uppercase;
+    color:var(--blue);
+    margin:0 0 14px;
+  }
+  h1{
+    font-family:var(--display);
+    font-weight:400;
+    font-size:clamp(32px,5.5vw,48px);
+    line-height:1.08;
+    letter-spacing:-.015em;
+    margin:0 0 12px;
+  }
+  h1 em{font-style:italic;color:var(--blue-deep)}
+  .standfirst{
+    max-width:58ch;
+    font-size:17px;
+    color:var(--ink-soft);
+    margin:0 0 30px;
+  }
+
+  .thesis{
+    border-top:3px solid var(--blue);
+    border-bottom:1px solid var(--rule);
+    padding:22px 0 24px;
+    margin-bottom:32px;
+  }
+  .thesis p{
+    font-family:var(--display);
+    font-size:clamp(20px,2.8vw,26px);
+    line-height:1.32;
+    margin:0 0 14px;
+    max-width:36ch;
+  }
+  .thesis .note{
+    font-family:var(--body);
+    font-size:15px;
+    color:var(--ink-soft);
+    max-width:64ch;
+    margin:0;
+  }
+
+  .legend{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:2px;
+    background:var(--rule);
+    border:1px solid var(--rule);
+    margin-bottom:38px;
+  }
+  .key{background:var(--panel);padding:14px 16px}
+  .key b{
+    display:block;
+    font-family:var(--mono);
+    font-size:11px;
+    letter-spacing:.12em;
+    text-transform:uppercase;
+    margin-bottom:5px;
+  }
+  .key span{font-size:14px;color:var(--ink-soft);line-height:1.4;display:block}
+  .key.g b{color:var(--green)}
+  .key.a b{color:var(--amber)}
+  .key.r b{color:var(--red)}
+
+  .grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(330px,1fr));
+    gap:32px 40px;
+  }
+  section{break-inside:avoid;page-break-inside:avoid}
+  h2{
+    font-family:var(--display);
+    font-weight:400;
+    font-size:22px;
+    line-height:1.2;
+    margin:0 0 4px;
+    padding-bottom:9px;
+    border-bottom:1px solid var(--rule);
+  }
+  .sub{
+    font-size:13.5px;
+    color:var(--ink-soft);
+    margin:9px 0 12px;
+  }
+
+  .tier{margin:14px 0 0}
+  .tier-label{
+    font-family:var(--mono);
+    font-size:10.5px;
+    letter-spacing:.12em;
+    text-transform:uppercase;
+    margin-bottom:6px;
+  }
+  .tier.g .tier-label{color:var(--green)}
+  .tier.a .tier-label{color:var(--amber)}
+  .tier.r .tier-label{color:var(--red)}
+
+  ul{list-style:none;margin:0;padding:0}
+  li{
+    position:relative;
+    padding-left:19px;
+    margin-bottom:6px;
+    font-size:15px;
+    line-height:1.45;
+  }
+  li::before{
+    content:"";
+    position:absolute;
+    left:0;top:.5em;
+    width:8px;height:8px;
+    border-radius:2px;
+    transform:rotate(45deg);
+  }
+  .tier.g li::before{background:var(--green)}
+  .tier.a li::before{background:var(--amber)}
+  .tier.r li::before{background:var(--red)}
+  li i{font-style:italic;color:var(--ink-soft)}
+
+  .avoid{
+    margin:0 0 38px;
+    border:1px solid var(--red);
+    background:#FBF4F1;
+    padding:24px 26px;
+    break-inside:avoid;page-break-inside:avoid;
+  }
+  .avoid h2{border-bottom-color:#E3C7BF;color:var(--red)}
+  .avoid ol{margin:14px 0 0;padding-left:20px;columns:2;column-gap:34px}
+  .avoid ol li{padding-left:6px;margin-bottom:10px;break-inside:avoid}
+  .avoid ol li::before{display:none}
+  .avoid ol li b{font-weight:700}
+
+  .habits{
+    margin-top:38px;
+    background:var(--panel);
+    padding:26px 28px;
+    break-inside:avoid;page-break-inside:avoid;
+  }
+  .habits h2{border-bottom-color:var(--rule)}
+  .habit-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+    gap:20px 32px;
+    margin-top:18px;
+  }
+  .habit b{
+    display:block;
+    font-family:var(--mono);
+    font-size:11px;
+    letter-spacing:.12em;
+    text-transform:uppercase;
+    color:var(--blue);
+    margin-bottom:5px;
+  }
+  .habit p{margin:0;font-size:15px;line-height:1.45}
+
+  table{
+    width:100%;
+    border-collapse:collapse;
+    margin-top:14px;
+    font-size:15px;
+  }
+  th{
+    text-align:left;
+    font-family:var(--mono);
+    font-size:10.5px;
+    letter-spacing:.12em;
+    text-transform:uppercase;
+    color:var(--blue);
+    font-weight:400;
+    padding:0 12px 7px 0;
+    border-bottom:1px solid var(--rule);
+  }
+  td{
+    vertical-align:top;
+    padding:10px 12px 10px 0;
+    border-bottom:1px solid var(--rule);
+    line-height:1.45;
+  }
+  td:last-child,th:last-child{padding-right:0}
+
+  .close{
+    margin-top:44px;
+    padding-top:22px;
+    border-top:3px solid var(--blue);
+    font-family:var(--display);
+    font-size:19px;
+    line-height:1.4;
+    max-width:60ch;
+  }
+  .close .cross{
+    display:block;
+    margin-top:14px;
+    font-size:22px;
+    color:var(--blue);
+  }
+  .disclaimer{
+    margin-top:22px;
+    padding-top:14px;
+    border-top:2px solid var(--blue);
+    break-inside:avoid;page-break-inside:avoid;
+    font-size:13px;
+    color:var(--ink-soft);
+    max-width:72ch;
+    line-height:1.5;
+  }
+
+  @page{
+    size:A4;
+    margin:17mm 12mm 12mm;
+    @top-center{content:"\205C";color:#1F5673;font-size:12pt;vertical-align:middle}
+  }
+  @media print{
+    body{background:#fff;font-size:10pt}
+    .sheet{padding:0;max-width:none}
+    h1{font-size:30px}
+    .thesis p{font-size:17px;margin-bottom:10px}
+    .standfirst{font-size:14.5px;margin-bottom:20px}
+    .thesis .note{font-size:13.5px}
+    .thesis{padding:14px 0 14px;margin-bottom:18px}
+    .legend{grid-template-columns:1fr 1fr 1fr;margin-bottom:20px}
+    .grid{display:block;columns:2;column-gap:30px}
+    .grid section{display:inline-block;width:100%;margin-bottom:15px}
+    .habit-grid{grid-template-columns:1fr 1fr 1fr}
+    h2{font-size:18px;padding-bottom:7px}
+    li{font-size:13px;margin-bottom:3px;line-height:1.38}
+    .avoid{background:#fff;margin:0 0 20px;padding:16px 18px}
+    .avoid h2{font-size:17px;padding-bottom:7px}
+    .avoid ol{margin-top:10px}
+    .avoid ol li{margin-bottom:6px;font-size:13px}
+    .habits{background:#fff;border:1px solid var(--rule);margin-top:26px}
+    .close{margin-top:30px;font-size:17px;break-inside:avoid;page-break-inside:avoid;page-break-after:avoid}
+    .disclaimer{page-break-before:avoid;break-before:avoid}
+  }
+</style>
+</head>
+<body>
+<div class="sheet">
+
+  <p class="eyebrow">Food notes &middot; please keep this in the kitchen</p>
+  <h1>Cooking for AP: two rules and <em>one short list</em>.</h1>
+  <p class="standfirst">AP has a metabolic condition called variegate porphyria, alongside a set of foods he reacts to. The condition means his body needs steady carbohydrate. The reactions mean a specific list of foods is best left out — none of it is an allergy, and none of it will cause a scene at your table.</p>
+
+  <div class="thesis">
+    <p>Rice, bread, pasta, and oats are the medicine. Please build the plate around them, and keep it simple — simple is genuinely what's wanted.</p>
+    <p class="note">The answer is almost always plain food cooked in olive oil with rice or bread beside it. A plate of rice with a listed safe vegetable and a small piece of protein — or no protein at all — is a perfect meal. There is no need for several dishes, and no need to overthink it; this is preference, not politeness. If anything is unclear, please just ask — a question is far better than any worry.</p>
+  </div>
+
+  <div class="legend">
+    <div class="key g"><b>Green &middot; yes, always</b><span>Serve freely. No thought needed.</span></div>
+    <div class="key a"><b>Yellow &middot; a small helping</b><span>Fine in ordinary amounts — just not the centre of the meal.</span></div>
+    <div class="key r"><b>Red &middot; please leave out</b><span>AP reacts to these. Worth avoiding even in cooking.</span></div>
+  </div>
+
+  <p class="sub" style="margin:0 0 28px">Fasting-day meals, dairy-free treats, and the protein summary are the last three sections.</p>
+
+  <div class="avoid">
+    <h2>The short version — what to leave out</h2>
+    <ol>
+      <li><b>Alcohol, in any form.</b> Including wine in a sauce or liqueur in a dessert. This is the strictest rule.</li>
+      <li><b>Tomato.</b> Fresh, tinned, paste, or sauce. This one hides in a lot of cooking.</li>
+      <li><b>All dairy — but not eggs.</b> No milk, cream, butter, yoghurt, or cheese. Eggs are fine and very welcome.</li>
+      <li><b>All legumes.</b> Lentils, ful and fava, chickpeas, beans, peas, green beans, peanuts — and things made from them: hummus, falafel, tofu, peanut butter.</li>
+      <li><b>Tahini, sesame, and seed oils.</b> No canola or vegetable oil — please cook with olive oil.</li>
+      <li><b>Most nuts.</b> Almonds and hazelnuts are welcome; walnuts, pistachios, cashews, peanuts are not.</li>
+      <li><b>Chocolate and cocoa.</b> A reliable trigger, dark especially.</li>
+      <li><b>Cured and pickled things.</b> Salami, pastrami, smoked fish, pickles.</li>
+      <li><b>Mint tea, stock cubes, and MSG.</b> Broth from scratch instead.</li>
+      <li><b>Low-carb, keto, or sugar-free versions.</b> The starch and the real sugar are the medicine.</li>
+      <li><b>Long gaps.</b> Something on time works better than something perfect late.</li>
+    </ol>
+  </div>
+
+  <div class="grid">
+
+    <section>
+      <h2>Whole grains &amp; complex carbs</h2>
+      <p class="sub">The most important part of any plate.</p>
+      <div class="tier g">
+        <div class="tier-label">Green</div>
+        <ul>
+          <li>Rice — white or brown, any preparation</li>
+          <li>Pasta, noodles, orzo</li>
+          <li>Bread — pita, sourdough, whole wheat, baguette</li>
+          <li>Oats and porridge</li>
+          <li>Couscous, bulgur, freekeh, barley</li>
+          <li>Polenta, semolina, corn tortillas</li>
+        </ul>
+      </div>
+      <div class="tier a">
+        <div class="tier-label">Yellow</div>
+        <ul>
+          <li>Potatoes and sweet potatoes <i>— welcome in a normal helping, not the whole plate</i></li>
+          <li>Koshari — only if made with <b>no lentils and no fried onion</b> <i>— the rice and pasta are fine</i></li>
+          <li>Very heavy bran or high-fibre loaves <i>— gas</i></li>
+        </ul>
+      </div>
+      <div class="tier r">
+        <div class="tier-label">Red</div>
+        <ul>
+          <li>Lentils, in any form</li>
+          <li>Fava beans and ful medames</li>
+          <li>Chickpeas, kidney beans, peanuts, all other beans and pulses</li>
+          <li>Cauliflower "rice", keto bread, zucchini noodles <i>— please serve the real thing</i></li>
+        </ul>
+      </div>
+    </section>
+
+    <section>
+      <h2>Natural &amp; unprocessed sweeteners</h2>
+      <p class="sub">Real sugar is genuinely good for AP. Please don't spare it.</p>
+      <div class="tier g">
+        <div class="tier-label">Green</div>
+        <ul>
+          <li>Honey</li>
+          <li>Plain cane sugar and brown sugar</li>
+          <li>Maple syrup</li>
+          <li>Jam and fruit spread</li>
+        </ul>
+      </div>
+      <div class="tier a">
+        <div class="tier-label">Yellow</div>
+        <ul>
+          <li>Dates, date paste, date syrup</li>
+          <li>Molasses, agave</li>
+          <li>Raisins and dried fruit in baking</li>
+        </ul>
+      </div>
+      <div class="tier r">
+        <div class="tier-label">Red</div>
+        <ul>
+          <li>Erythritol, xylitol, sorbitol, maltitol <i>— these cause gas, which affects his heart rate</i></li>
+          <li>"Sugar-free" or keto desserts <i>— no carbohydrate, which defeats the purpose</i></li>
+        </ul>
+      </div>
+    </section>
+
+    <section>
+      <h2>Protein &amp; healthy fat sources</h2>
+      <p class="sub">For ordinary days, and for fasts that allow fish. Meat, eggs, and white fish are the mainstay — dairy is not.</p>
+      <div class="tier g">
+        <div class="tier-label">Green</div>
+        <ul>
+          <li>Eggs, cooked any way</li>
+          <li>Chicken</li>
+          <li>Beef, ground preferred</li>
+          <li>Lamb, ground preferred</li>
+          <li>White fish — tilapia, haddock, sole, halibut <i>— frozen fillets are perfectly fine</i></li>
+          <li>Olive oil, generously</li>
+          <li>Ghee <i>— the milk solids are strained out, so it doesn't count as dairy here</i></li>
+        </ul>
+      </div>
+      <div class="tier a">
+        <div class="tier-label">Yellow</div>
+        <ul>
+          <li>Salmon, shrimp, and fresh tuna <i>— welcome, in a smaller portion</i></li>
+        </ul>
+      </div>
+      <div class="tier r">
+        <div class="tier-label">Red</div>
+        <ul>
+          <li>All dairy — milk, cream, butter, yoghurt, and every cheese. Eggs are the one exception and are always welcome</li>
+          <li>Aged, cured, smoked, or fermented — salami, pastrami, smoked fish, anchovy</li>
+          <li>Canned or jarred fish, and the strong dark-fleshed ones — tinned tuna, sardines, mackerel</li>
+          <li>Anything cooked with wine, beer, brandy, or liqueur</li>
+        </ul>
+      </div>
+    </section>
+
+    <section>
+      <h2>Safe, nutrient-rich vegetables</h2>
+      <p class="sub">Plenty to work with — the exclusions are specific, not sweeping.</p>
+      <div class="tier g">
+        <div class="tier-label">Green</div>
+        <ul>
+          <li>Cucumber, lettuce</li>
+          <li>Spinach <i>— a small serving; strictly a yellow, but preferred over leaving it out</i></li>
+          <li>Fresh herbs — parsley, dill, coriander</li>
+          <li>Lemon and lime <i>— a squeeze over fish, rice, or vegetables is welcome</i></li>
+          <li>Zucchini, squash, pumpkin</li>
+        </ul>
+      </div>
+      <div class="tier a">
+        <div class="tier-label">Yellow</div>
+        <ul>
+          <li>Carrots</li>
+          <li>Mushrooms</li>
+          <li>Heavy cooked greens in quantity</li>
+          <li>Bell peppers</li>
+          <li>Onion and garlic — minimal amounts, and always cooked. Raw is not safe, and never onion or garlic powder, which is far too concentrated. These sit close to red</li>
+        </ul>
+      </div>
+      <div class="tier r">
+        <div class="tier-label">Red</div>
+        <ul>
+          <li>Tomatoes — fresh, tinned, paste, sauce, ketchup</li>
+          <li>Eggplant</li>
+          <li>Molokhia and okra</li>
+          <li>Cabbage, broccoli, cauliflower, Brussels sprouts</li>
+          <li>Peas, green beans, peanuts, and all legumes</li>
+          <li>Pickled or fermented vegetables — sauerkraut, torshi, kimchi</li>
+        </ul>
+      </div>
+    </section>
+
+    <section>
+      <h2>Fresh whole fruits</h2>
+      <p class="sub">Welcome with a meal, but not instead of one.</p>
+      <div class="tier g">
+        <div class="tier-label">Green</div>
+        <ul>
+          <li>Apples and pears</li>
+          <li>Grapes</li>
+          <li>Melon and watermelon</li>
+          <li>Peaches, apricots, plums</li>
+          <li>Blueberries</li>
+          <li>Lemon and lime <i>— a squeeze over fish or rice is welcome</i></li>
+        </ul>
+      </div>
+      <div class="tier a">
+        <div class="tier-label">Yellow</div>
+        <ul>
+          <li>Bananas</li>
+          <li>Oranges and mandarins</li>
+          <li>Mango</li>
+          <li>Dates and figs</li>
+          <li>Dried fruit generally</li>
+        </ul>
+      </div>
+      <div class="tier r">
+        <div class="tier-label">Red</div>
+        <ul>
+          <li>Strawberries, pineapple, papaya</li>
+          <li>Grapefruit</li>
+          <li>Fruit soaked in liqueur or spirit syrup</li>
+        </ul>
+      </div>
+    </section>
+
+    <section>
+      <h2>Essential fats</h2>
+      <p class="sub">Olive oil is the answer to almost every question in this section.</p>
+      <div class="tier g">
+        <div class="tier-label">Green</div>
+        <ul>
+          <li>Olive oil — the first choice for everything</li>
+          <li>Ghee <i>— clarified, so no milk solids</i></li>
+          <li>Coconut oil and coconut milk</li>
+          <li>Almonds and hazelnuts</li>
+        </ul>
+      </div>
+      <div class="tier a">
+        <div class="tier-label">Yellow</div>
+        <ul>
+          <li>Avocado <i>— small amounts</i></li>
+          <li>Deep-fried food <i>— heavy in volume</i></li>
+        </ul>
+      </div>
+      <div class="tier r">
+        <div class="tier-label">Red</div>
+        <ul>
+          <li>Butter and all other dairy fats</li>
+          <li>Seed and vegetable oils — canola, plain "vegetable oil", sunflower, corn, soybean, grapeseed, sesame. Olive oil instead, please</li>
+          <li>Tahini and sesame in any form</li>
+          <li>Walnuts, pistachios, cashews, peanuts, pecans, pumpkin seeds</li>
+          <li>Cooking "low fat" or "light" on his account — please don't</li>
+        </ul>
+      </div>
+    </section>
+
+    <section>
+      <h2>Hydrating &amp; VP-friendly drinks</h2>
+      <p class="sub">AP drinks measured amounts through the day rather than a lot at once.</p>
+      <div class="tier g">
+        <div class="tier-label">Green</div>
+        <ul>
+          <li>Water</li>
+          <li>Broth and soup made from scratch <i>— no stock cubes, no MSG; salty is good</i></li>
+          <li>Oat milk — the preferred milk by some distance; coconut milk also fine</li>
+          <li>Decaf coffee with oat milk</li>
+          <li>Apple or pear juice</li>
+          <li>Clear soda made with cane sugar <i>— a normal glass; the fizz is the only limit</i></li>
+          <li>Gatorade or electrolyte drinks — the regular kind, with sugar <i>— the clearer the better; it's the dyes in the darker colours that are the problem</i></li>
+        </ul>
+      </div>
+      <div class="tier a">
+        <div class="tier-label">Yellow</div>
+        <ul>
+          <li>Caffeinated coffee <i>— some caffeine is perfectly fine; oat milk rather than dairy</i></li>
+          <li>Cola and dark sodas <i>— and any fizzy drink in large amounts; gas lifts his heart rate</i></li>
+        </ul>
+      </div>
+      <div class="tier r">
+        <div class="tier-label">Red</div>
+        <ul>
+          <li>Alcohol of any kind, including in cooking</li>
+          <li>Mint tea</li>
+          <li>Cow's milk, and lattes or drinks made with it</li>
+          <li>Packaged stock, bouillon cubes, MSG-based soup bases</li>
+          <li>Zero-sugar or diet sodas and sports drinks</li>
+          <li>Unfamiliar herbal blends, "detox" or slimming teas, supplement powders</li>
+        </ul>
+      </div>
+    </section>
+
+    <section>
+      <h2>Quick safe options for fasting days</h2>
+      <p class="sub">On fast days AP keeps no meat, poultry, dairy, or eggs. Fish is allowed on many fasts, and white fish is the best of it. The usual fasting proteins — ful, lentils, hummus, falafel, tofu — are all on the avoid list, so a strict fasting plate leans hard on grains, oil, and the green vegetables.</p>
+      <div class="tier g">
+        <div class="tier-label">Green</div>
+        <ul>
+          <li>White fish with rice <i>— on the fasts that allow fish</i></li>
+          <li>Rice with olive oil and a listed safe vegetable</li>
+          <li>Pasta with olive oil and either zucchini or squash <i>— no tomato sauce</i></li>
+          <li>Oatmeal made with water or oat milk, with honey</li>
+          <li>Bread with honey or jam</li>
+          <li>Vegetable soup built from scratch, thickened with rice or pasta</li>
+          <li>Rice pudding made with coconut or oat milk</li>
+          <li>Almonds and hazelnuts</li>
+        </ul>
+      </div>
+      <div class="tier a">
+        <div class="tier-label">Yellow</div>
+        <ul>
+          <li>Mahshi made with oil <i>— no tomato, and not the eggplant version</i></li>
+          <li>A meal of vegetables alone <i>— not enough fuel without a grain</i></li>
+        </ul>
+      </div>
+      <div class="tier r">
+        <div class="tier-label">Red</div>
+        <ul>
+          <li>Ful medames, lentil soup, koshari as usually served (lentils and fried onion)</li>
+          <li>Hummus, falafel, tahini, tofu, peanut butter</li>
+          <li>Leaving out the starch because it's a fast day — a fasting plate needs it most</li>
+        </ul>
+      </div>
+    </section>
+
+    <section>
+      <h2>Healthier treats without dairy</h2>
+      <p class="sub">Useful on fast days, and good any day.</p>
+      <div class="tier g">
+        <div class="tier-label">Green</div>
+        <ul>
+          <li>Baked apple or pear with cinnamon and honey</li>
+          <li>Any listed safe fruit with honey</li>
+          <li>Rice pudding made with coconut or oat milk</li>
+          <li>Sorbet or fruit ice made from a listed safe fruit</li>
+          <li>Basbousa made with oil</li>
+          <li>Almond or hazelnut sweets, roasted almonds with honey</li>
+        </ul>
+      </div>
+      <div class="tier a">
+        <div class="tier-label">Yellow</div>
+        <ul>
+          <li>Ma'amoul and other date-filled sweets</li>
+          <li>Very rich desserts late at night <i>— volume, not the sugar</i></li>
+        </ul>
+      </div>
+      <div class="tier r">
+        <div class="tier-label">Red</div>
+        <ul>
+          <li>Chocolate and cocoa, dark especially</li>
+          <li>Halawa and anything tahini-based</li>
+          <li>Baklava and sweets made with walnut or pistachio</li>
+          <li>Sugar-free or keto sweets; anything with rum or liqueur</li>
+        </ul>
+      </div>
+    </section>
+
+    <section>
+      <h2>Proteins at a glance</h2>
+      <p class="sub">Protein alone is never a meal — it always needs carbohydrate beside it.</p>
+      <table>
+        <tr>
+          <th>Ordinary days</th>
+          <th>Fasting days</th>
+        </tr>
+        <tr>
+          <td>Eggs (preferred), chicken, ground beef, lamb, white fish</td>
+          <td>White fish (on fasts that allow it), almonds, hazelnuts, oat milk<br><i>The legumes are all out, so on strict fasts the grains carry the meal</i></td>
+        </tr>
+        <tr>
+          <td colspan="2"><i>Out either way:</i> all dairy, all legumes, tofu, tahini, and cured or aged meats.</td>
+        </tr>
+      </table>
+    </section>
+
+    <section>
+      <p class="disclaimer">This is a personal food list, not an allergy list and not medical advice for anyone else. The porphyria risk is slow rather than sudden — it comes from missing carbohydrate, missing meals, and alcohol. The rest of the list is about foods AP reacts to, where the consequence is symptoms over the following day rather than anything urgent.</p>
+    </section>
+
+  </div>
+
+
+
+
+</div>
+</body>
+</html>
